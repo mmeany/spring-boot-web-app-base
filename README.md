@@ -8,6 +8,7 @@ This is a starter application based on Spring Boot, including the following tech
 * Spring Data JPA
 * HSQL Database, embedded with persistent store on disk
 * Twitter Bootstrap
+* JQuery and JQuery Validation
 
 Making user details available through Tiles
 ===========================================
