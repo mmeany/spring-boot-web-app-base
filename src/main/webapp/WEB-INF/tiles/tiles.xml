@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- Templates -->
+    
+	<definition name="layout.basic" template="/WEB-INF/tiles/layout/basic.jsp" preparer="usernamePreparer">
+        <put-attribute name="title" value="Spring Web MVC with Tiles 3" />
+        <put-attribute name="brand" value="Basic" cascade="true" />
+		<put-attribute name="header" value="/WEB-INF/tiles/view/header.jsp" />
+		<put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/view/footer.jsp" />
+        <put-list-attribute name="jsfiles">
+            <add-attribute value="/public/js/jquery-1.11.1.min.js" />
+            <add-attribute value="/public/js/bootstrap.min.js" />
+            <add-attribute value="/public/js/site.js" />
+        </put-list-attribute>
+	</definition>
+
+    <definition name="layout.basic.form" extends="layout.basic">
+        <put-list-attribute name="jsfiles" inherit="true">
+            <add-attribute value="/public/js/jquery.validate.min.js" />
+            <add-attribute value="/public/js/additional-methods.min.js" />
+        </put-list-attribute>
+    </definition>	
+
+	<!-- Pages -->	
+	<definition name="site.homepage" extends="layout.basic">
+		<put-attribute name="body" value="/WEB-INF/tiles/view/home/home.jsp" />
+	</definition>
+	
+    <definition name="site.login" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/tiles/view/auth/login.jsp" />
+    </definition>
+
+    <definition name="site.admin.greet" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/tiles/view/admin/greeting.jsp" />
+    </definition>
+    
+    <definition name="site.error" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/tiles/view/error.jsp" />
+    </definition>
+    
+    <!-- User list / view / add / edit -->
+    <definition name="user.list" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/tiles/view/user/list.jsp" />
+    </definition>
+
+    <definition name="user.view" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/tiles/view/user/view.jsp" />
+    </definition>
+
+    <definition name="user.form" extends="layout.basic.form">
+        <put-attribute name="body" value="/WEB-INF/tiles/view/user/form.jsp" />
+        <put-list-attribute name="jsfiles" inherit="true">
+            <add-attribute value="/public/js/view-user-form.js" />
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>
