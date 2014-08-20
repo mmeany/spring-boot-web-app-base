@@ -134,11 +134,10 @@ public class UserForm {
         }
         user.setEnabled(isEnabled());
         user.getAuthorities().clear();
-        user.getAuthorities().add(new UserAuthority(1L, "ROLE_USER"));
+        user.getAuthorities().add(User.ROLE_USER);
         if (isAdministrator()) {
-            user.getAuthorities().add(new UserAuthority(2L, "ROLE_ADMIN"));
+            user.getAuthorities().add(User.ROLE_ADMIN);
         }
         user.setLastUpdatedDate(Calendar.getInstance());
     }
-
 }

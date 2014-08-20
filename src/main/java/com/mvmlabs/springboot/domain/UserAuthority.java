@@ -16,10 +16,7 @@ public class UserAuthority implements GrantedAuthority {
     private static final long serialVersionUID = 6184045308025810944L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String authority;
     
     public UserAuthority() {
@@ -27,19 +24,6 @@ public class UserAuthority implements GrantedAuthority {
 
     public UserAuthority(final String authority) {
         this.authority = authority;
-    }
-
-    public UserAuthority(final Long id, final String authority) {
-        this.id = id;
-        this.authority = authority;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override

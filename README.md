@@ -10,6 +10,23 @@ This is a starter application based on Spring Boot, including the following tech
 * Twitter Bootstrap
 * JQuery and JQuery Validation
 
+First Time Database Configuation
+================================
+File mentioned here can be found in: src/main/resources
+
+To create the database on first run of the application change line 6 of application.properties from:
+
+    spring.jpa.hibernate.ddl-auto: 
+
+to:
+
+    spring.jpa.hibernate.ddl-auto: create
+
+This will cause the database to be dropped and recreated, deleting it if it exists. To get the test data loaded as the same time,
+make a copy of data-hidden.sql in the same directory and name it data.sql.
+
+Don't forget to change application.properies back to its initial state and delete data.sql once you have recreated the database.
+
 Making user details available through Tiles
 ===========================================
 See the Tiles configuration for customised View Preparer that makes the currently signed in user object available as an attribute that cascades. This is defined on the basic.jsp template making it available to all pages and in particular is used in the header.jsp to display the signed in message.
@@ -44,7 +61,6 @@ Todo
 ====
 This project will not be considered finished until the following items have been completed.
 
-. UserAthorities - remove the numeric primary key as it is not needed
 . Allow UserAuthorities to be selected from list of all available
 . Implement a custom validator for cross field checks
 
@@ -52,6 +68,7 @@ Done
 ====
 This sections contains entries from the Todo section copied into it once they have been completed.
 
+. UserAthorities - remove the numeric primary key as it is not needed
 . Implement JQuery form validation
 . Change logging implementation to slf4j using log4j.
 
