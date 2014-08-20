@@ -57,7 +57,7 @@ public class ConfigurationForSecurity {
 
     @Bean
     public AuthenticationSuccessHandler authenticationSuccessHandler() {
-        return new ProcessSuthSuccess();
+        return new ProcessAuthSuccess();
     }
     
     @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
@@ -120,7 +120,7 @@ public class ConfigurationForSecurity {
         }
     }
 
-    protected static class ProcessSuthSuccess extends SimpleUrlAuthenticationSuccessHandler {
+    protected static class ProcessAuthSuccess extends SimpleUrlAuthenticationSuccessHandler {
 
         /** Logger implementation. */
         private final Logger logger = LoggerFactory.getLogger(this.getClass());
